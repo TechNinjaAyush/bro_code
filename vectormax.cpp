@@ -16,7 +16,7 @@ int main(){
         cin>>num;
         v.push_back(num);
     }
-    sort(v.begin(),v.end());
+    sort(v.begin(),v.end()); ssvskhhigiwg
     int max=*max_element(v.begin(),v.end());
     int min=*min_element(v.begin(),v.end());
     cout<<"maximum element after sorting is"<<max;
