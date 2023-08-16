@@ -11,10 +11,10 @@ using namespace std;
 
 int main()
 {
- int k,n,w;   gsfjgjgfj
+ int k,n,w;
  cin>>k>>n>>w;
  int sum=0;
- sdgfasf
+ 
  while(w!=0){
      sum=sum+k*w;
      w--;
