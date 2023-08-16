@@ -12,16 +12,16 @@ int main(){
    int n,h;
    cin>>n>>h;
    int arr[n];
-   int sum=0;
+   int add=0;
   for(int i=0;i<n;i++){
       cin>>arr[i];
       if(arr[i]<=h){
-          sum+=1;
+          add+=1;
       }
       else{
-          sum+=2;
+          add+=2;
       }
   }
- cout<<sum; 
+ cout<<add; 
     return 0;
 }
