@@ -44,7 +44,21 @@ public :
 void display(){
 cout<<"NAME\t\tRoll number\t\tsgpa";
 for(int i=0;i<2;i++){
-cout<<p[i].name<<p[i].roll_number<<p[i].sgpa;
+cout<<p[i].name<<"\t\t"<<p[i].roll_no<<"\t\t"<<p[i].sgpa;
+}
+}
+public:
+void quicksort(){
+int start=1;
+int j=p[start].roll_no;
+int i=p[start-1].roll_no;
+
+int end=4;
+int pivot=p[end].roll_no;
+for(int =0;i<5;i++){
+if(j<=pivot){
+start++;
+swap(i,j);
 }
 }
 public :
@@ -63,32 +77,58 @@ void sequentialsearch(){
     }
   }
 }
-public :
+public:
 void insertionsort(){
-int i,int j,int key;
-for(int i=1,i<n;i++){
+int i,j;
+string key;
 
+for(int i=1;i<5;i++){
+    key=p[i].name;
+    j=i-1;
+    
+    while(j>=0){
+        
+    if(key.compare(p[j].name)<0){
+        p[j+1].roll_no=p[j].roll_no;
+        p[j+1].sgpa=p[j+1].sgpa;
+        p[j+1].name=p[j+1].name;
+    }
+    else{
+        break;
+    }
+    j--;
+    }
+    p[j+1].name=key;
 }
+cout<<"NAMES OF STUDENTS IN ALPHABETICAL ORDER";
+for(int i=0;i<2;i++){
+    cout<<p[i].name<<" ";
+}
+}
+
  };
-
-
 int main(){
   students p[2];
   seit obj1;
  
- obj1.enterdata(p);
+ obj1.enterdata();
    int choice;
-  cout<<"enter the choice \n";
+  cout<<("enter the choice \n");
   cin>>choice;
-  ("enter 1 for bubble sort/n");
-   ("enter 2 for sequential search/n");
+  ("enter 1 for bubble sort \n");
+   ("enter 2 for sequential search \n");
 
   switch(choice){
   case 1:
-   obj1.bubble_sort(p);
+   obj1.bubble_sort();
+   break;
    case 2:
-    obj1.sequentialsearch(p);
-    case 
+    obj1.sequentialsearch();
+    break;
+    case 3:
+    obj1.insertionsort();
+    break;
         
    }
       return 0;}
+
