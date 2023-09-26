@@ -1,34 +1,32 @@
 import java.util.Scanner;
 
-//THIS IS THE ASSIGNMENT FOR OVERRIDING AND OVERLOADING
-class Shape {
-    public void ComputeArea() {
-        System.out.println("COMPUTE THE AREA OF FOLLOWING SHAPES\n ");
-    }
-
-    class Rectangle extends Shape {
-        public void ComputeArea(int length, int breadth) {
-            System.out.println("THE AREA OF RECTANGLE IS :"+length * breadth+" \n");
-        }
-    }
-
-    class triangle extends Shape {
-        public void ComputeArea(int base, int height) {
-            System.out.println("THE AREA OF TRIANGLE IS :");
-        }
-    }
-}
 class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        Shape obj1 = new Shape();
-        int length, breadth;
-        length = sc.nextInt();
-        breadth = sc.nextInt();
-        obj1.ComputeArea(length, breadth);
-        int base, height;
-        base = sc.nextInt();
-        height = sc.nextInt();
-        obj1.ComputeArea(base, height);
+
+        System.out.println("Enter object to be created \n1. Assistant Project Manager\n2.Teamlead\n3. ProjectManager\n4.Programmer");
+
+
+        Scanner in = new Scanner(System.in);
+        int ch = in.nextInt();
+        System.out.println("Enter Basepay: ");
+        int basePay = in.nextInt();
+        switch (ch){
+            case 1: AssistantProjectManager APM1= new AssistantProjectManager();
+                    APM1.getData();
+                    APM1.displayData();
+                    APM1.salarySlip(basePay);
+            case 2:TeamLead T1 = new TeamLead();
+                    T1.getData();
+                    T1.displayData();
+                    T1.salarySlip(basePay);
+            case 3: ProjectManager PM1= new ProjectManager();
+                    PM1.getData();
+                    PM1.displayData();
+                    PM1.salarySlip(basePay);
+            case 4: Programmer P1= new Programmer();
+                    P1.getData();
+                    P1.displayData();
+                    P1.salarySlip(basePay);
+        }
     }
 }
