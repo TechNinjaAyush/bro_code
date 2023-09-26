@@ -1,67 +1,76 @@
-/******************************************************************************
-
-Welcome to GDB Online.
-GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
-C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
-Code, Compile, Run and Debug online from anywhere in world.
-
-*******************************************************************************/
 import java.util.Scanner;
-public class employee{
-    String name;
-    int id;
-    String mail;
-    String mobile_no;
-     String address;
-    public  void getdata(){
-         Scanner sc=new Scanner(System.in);
-         System.out.println("enter the name of employee:");
-         name=sc.nextLine();
-         System.out.println("enter the ID of employee :");
-         id=sc.nextInt();
-         System.out.println("enter the email of employee:");
-         mail=sc.nextLine();
-         System.out.println("enter the mobile_number of employee:");
-         mobile_no=sc.nextLine();
-         System.out.println("enter the address of employee:");
-         address=sc.nextLine();
-     }
-     public void displaydata(){
-         System.out.println("name of employee"+name+"id is"+mail+"mobile_no"+mobile_no+"address is"+address);
-     }
-     void salarySlip(int BasePay){
-        System.out.println("\n\nDA: " + (0.95*BasePay) + "\nHRA: " + (0.1*BasePay) + "\nPF: " + (0.12*BasePay) + "\nStaff Club Fund: " + (0.001*BasePay));
-        System.out.println("Gross Salary: " + (BasePay * 2.191));
-        System.out.println("Net Salary: " + (BasePay * 2.07));
-    }
-    public class programmer extend employee{
-        @Override
-        int BasePay
-        public void getdata(){
-        super.getdata();
-        }
-        @Override
-        public void displaydata(){
-            super.displaydata();
-        }
-        @Override
-        public void salarySlip(int bp){
-            super.salarySlip(bp);
-        }
 
-    
+//THIS IS THE ASSIGNMENT FOR OVERRIDING AND OVERLOADING
+class Shape {
+    double dim1,dim2;
+    Shape(){
+        dim1=0;
+        dim2=0;
+    }
+    public void ComputeArea() {
+        System.out.println("COMPUTE THE AREA OF FOLLOWING SHAPES\n ");
     }
 }
- 
 
-public class Main
-{
-	public static void main(String[] args) {
-int basepay=10000;
-   programmer P1=new programmer();
-   p1.getdata();
-   p1.displaydata();
-   p1.salarySlip()
+    class Rectangle extends Shape {
+        public void ComputeArea(double length, double breadth) {
+            dim1=length;
+            dim2=breadth;
+            System.out.println("THE AREA OF RECTANGLE IS :"+dim1 * dim2);
+        }
+    }
 
-	}
+    class triangle extends Shape {
+        public void ComputeArea(double base, double height) {
+            dim1=base;
+            dim2=height;
+            System.out.println("THE AREA OF TRIANGLE IS :"+0.5*dim1*dim2);
+        }
+    }
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Shape obj1 = new Shape();
+        obj1.ComputeArea();
+        double length, breadth;
+        Rectangle obj2 = new Rectangle();
+        triangle obj3 = new triangle();
+        int ch;
+
+
+        do {
+            System.out.println("ENTER 1 FOR CALCULATING THE AREA OF RECTANGLE\nENTER 2 FOR CALCULATING THE AREA OF TRIANGLE");
+
+
+            ch= sc.nextInt();
+
+            switch (ch) {
+                case 1:
+                    System.out.println("ENTER THE LENGTH OF RECTANGLE : ");
+                    length = sc.nextDouble();
+                    System.out.println("ENTER THE BREADTH OF RECTANGLE :  ");
+                    breadth = sc.nextInt();
+                    obj2.ComputeArea(length, breadth);
+                    break;
+
+                case 2:
+                    double base, height;
+                    System.out.println("ENTER BASE OF TRIANGLE :  ");
+                    base = sc.nextInt();
+                    System.out.println("ENTER HEIGHT OF TRIANGLE :  ");
+                    height = sc.nextInt();
+                    obj3.ComputeArea(base, height);
+                    break;
+
+                case 3:
+                System.out.println("EXIT THE PROGRAM");
+
+            }
+
+
+        }
+
+        while (ch != 3) ;
+    }
 }
