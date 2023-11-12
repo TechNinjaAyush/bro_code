@@ -1,11 +1,3 @@
-/******************************************************************************
-
-                              Online C++ Compiler.
-               Code, Compile, Run and Debug C++ program online.
-Write your code in this editor and press "Run" button to compile and execute it.
-
-*******************************************************************************/
-
 #include<iostream>
 using namespace std;
 
@@ -13,70 +5,108 @@ class Stack {
 public:
     int arr[5];
     int idx = -1;
-    int capacity ; 
+    int capacity;
 
-   
-    Stack(int c ){
-    this->capacity = c ;
-   
+    Stack(int c) {
+        this->capacity = c;
     }
+
     void Is_Empty() {
         if (idx == -1) {
             cout << "STACK IS EMPTY\n";
+        } else {
+            cout << "STACK IS NOT EMPTY\n";
         }
     }
 
-    void Is_Full(){
-        if( idx == capacity -1){
-            cout << " stack is overflow \n" ;
+    void Is_Full() {
+        if (idx == capacity - 1) {
+            cout << "STACK IS FULL\n";
+        } else {
+            cout << "STACK IS NOT FULL\n";
         }
     }
 
     void push(int num) {
         // Increment the index and assign the value to the Stack
-        
-        idx ++ ;
-        arr[idx] = num;
-        
+        if (idx == capacity - 1) {
+            cout << "STACK IS FULL. CANNOT PUSH MORE ELEMENTS.\n";
+        } else {
+            idx++;
+            arr[idx] = num;
+            cout << "PUSHED ELEMENT: " << num << endl;
+        }
+    }
+
+    void pop() {
+        if (idx == -1) {
+            cout << "UNDERFLOW (STACK IS EMPTY)\n";
+        } else {
+            cout << "POPPED ELEMENT: " << arr[idx] << endl;
+            idx--;
+        }
     }
 
     void display() {
         // Display the elements of the Stack
-        for (int i = 0; i < 5; i++) {
-            cout << arr[i] << " ";
+        if (idx == -1) {
+            cout << "STACK IS EMPTY\n";
+        } else {
+            cout << "STACK ELEMENTS: ";
+            for (int i = 0; i <= idx; i++) {
+                cout << arr[i] << " ";
+            }
+            cout << endl;
         }
-        cout << endl;  // Add a newline for better formatting
     }
 
-   
-    
-    void Top_Element(){
-        cout << "TOP ELEMENT IS :\n" ;
-        cout << arr[idx] << "\n" ; 
+    void Top_Element() {
+        if (idx != -1) {
+            cout << "TOP ELEMENT IS: " << arr[idx] << "\n";
+        } else {
+            cout << "STACK IS EMPTY. NO TOP ELEMENT.\n";
+        }
     }
 };
 
-
 int main() {
-    int capacity = 5 ;
-    Stack obj1(capacity) ;
-   
+    int capacity = 5;
+    Stack obj1(capacity);
+    int ch; // CHOICE
 
-    obj1.Is_Empty();
+    cout << "ENTER THE CHOICE (1-6) or 7 to exit\n";
+    cin >> ch;
 
-    int num;
+    while (ch <= 6) {
+        switch (ch) {
+            case 1:
+                obj1.Is_Empty();
+                break;
+            case 2:
+                obj1.Is_Full();
+                break;
+            case 3:
+                int num;
+                cout << "Enter the element to push onto the stack: ";
+                cin >> num;
+                obj1.push(num);
+                break;
+            case 4:
+                obj1.Top_Element();
+                break;
+            case 5:
+                obj1.display();
+                break;
+            case 6:
+                obj1.pop();
+                break;
+            default:
+                cout << "Invalid choice. Please enter a valid option.\n";
+        }
 
-    // Input values and push them onto the stack
-    for (int i = 0; i < 5; i++) {
-        cin >> num;
-        obj1.push(num);
+        cout << "ENTER THE NEXT CHOICE (1-6) or 7 to exit\n";
+        cin >> ch;
     }
-     obj1.Is_Full() ;
-    // Display the stack
-    cout << "DISPLAY THE ELEMENTS :\n";
-obj1.display();
-
-obj1.Top_Element();
 
     return 0;
 }
